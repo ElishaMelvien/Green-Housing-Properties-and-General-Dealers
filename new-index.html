@@ -1,0 +1,1337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Green Housing - Verified Land & Properties in Zambia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Favicons -->
+    <link href="assets/img/logo.jpg" rel="icon">
+    <link href="assets/img/logo.jpg" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #1b5e20;
+            --secondary-green: #2e7d32;
+            --accent-gold: #ffa726;
+            --dark: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .trust-bar i {
+            color: var(--accent-gold);
+            margin: 0 5px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.95), rgba(46, 125, 50, 0.95)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231b5e20" width="1200" height="600"/></svg>');
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 167, 38, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-highlight {
+            color: var(--accent-gold);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .trust-badge i {
+            font-size: 24px;
+            color: var(--accent-gold);
+        }
+
+        /* Live Activity Notification */
+        .live-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1001;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .live-notification.show {
+            display: block;
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #4caf50;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.3s;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        /* Value Props Section */
+        .value-props {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 20px;
+        }
+
+        /* Properties Section */
+        .properties-section {
+            padding: 80px 0;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .property-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .property-body {
+            padding: 25px;
+        }
+
+        .property-location {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .property-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .property-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .urgency-tag {
+            background: #ffebee;
+            color: #c62828;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 60px 0;
+        }
+
+        .calculator-card {
+            background: white;
+            color: var(--dark);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .calculator-result {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .result-amount {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Exit Intent Popup */
+        .exit-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exit-popup.show {
+            display: flex;
+        }
+
+        .exit-popup-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 600px;
+            position: relative;
+            text-align: center;
+            animation: popupSlide 0.4s ease-out;
+        }
+
+        @keyframes popupSlide {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .exit-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            border: none;
+            background: none;
+        }
+
+        .exit-popup h2 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .popup-offer {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* CTA Buttons */
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+        }
+
+        .btn-secondary-custom {
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .btn-outline-custom {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Social Proof Counter */
+        .social-proof {
+            background: white;
+            padding: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .trust-badges {
+                gap: 15px;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 26px;
+            }
+
+            .live-notification {
+                left: 15px;
+                bottom: 90px;
+                font-size: 14px;
+            }
+
+            .exit-popup-content {
+                margin: 20px;
+                padding: 30px;
+            }
+        }
+        
+    </style>
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // Replace with your actual Pixel ID
+    fbq('track', 'PageView');
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container">
+            <i class="bi bi-shield-check"></i> 100% Verified Titles
+            <i class="bi bi-wallet2"></i> Flexible Payment Plans
+            <i class="bi bi-people"></i> 500+ Happy Landowners
+        </div>
+    </div>
+
+   <header class="header">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="assets/img/logo.jpg" alt="Green Housing Limited" style="height: 70px; width: auto;">
+                
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="agents.html">Agents</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <div class="header-cta d-none d-lg-flex">
+                <a href="tel:0773103431" class="btn btn-outline-success">
+                    <i class="bi bi-telephone"></i> 0773 103 431
+                </a>
+                <a href="https://wa.me/260773103431" class="btn btn-success ms-2">
+                    <i class="bi bi-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 hero-content">
+                    <h1 style="color: #f8f9fa;">Own <span class="hero-highlight">Verified Land</span> in Lusaka's Growing Areas</h1>
+                    <p>Secure your future with legitimate, affordable plots. Flexible payment plans for everyone.</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#properties" class="btn btn-primary-custom btn-lg">
+                            View Available Plots
+                        </a>
+                        
+                    </div>
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span>Verified Titles</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Fast Processing</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-shield-lock"></i>
+                            <span>Secure Transfer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 hero-content text-center">
+                    <h1 style="color: #f8f9fa;">Own <span class="hero-highlight">Verified Land</span> in Lusaka's Growing Areas</h1>
+                    <p>Secure your future with legitimate, affordable plots. Flexible payment plans for everyone.</p>
+                    <div class="d-flex gap-3 mb-4 justify-content-center">
+                        <a href="#properties" class="btn btn-primary-custom btn-lg">
+                            View Available Plots
+                        </a>
+                    </div>
+                    <div class="trust-badges justify-content-center">
+                        <div class="trust-badge">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span>Verified Titles</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Fast Processing</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-shield-lock"></i>
+                            <span>Secure Transfer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Counter -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Happy Landowners</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Prime Locations</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Verified Titles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props Section -->
+    <section class="value-props">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Green Housing</h2>
+                <p>We make land ownership simple, secure, and affordable</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bi bi-file-earmark-check"></i>
+                        </div>
+                        <h4>Verified Documentation</h4>
+                        <p>Every plot comes with proper legal documents. We handle all paperwork and ensure secure ownership transfer.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h4>Flexible Payment Plans</h4>
+                        <p>Pay in installments that fit your budget. Options for both salaried and self-employed buyers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h4>Prime Locations</h4>
+                        <p>Plots in fast-developing areas with good road access and growing infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties-section" id="properties">
+        <div class="container">
+            <div class="section-title">
+                <h2>December Land Promotion</h2>
+                <p>Limited time offers on verified plots - Prices increase January 1st</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-badge">HOT DEAL</div>
+                        <div class="property-image">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-location">
+                                <i class="bi bi-pin-map"></i> Mungule - 10 Miles
+                            </div>
+                            <div class="property-title">3 Doors Site 1</div>
+                            <div class="urgency-tag">
+                                <i class="bi bi-clock"></i> Only 5 plots left
+                            </div>
+                            <div class="property-price">From K7,500</div>
+                            <div class="property-features">
+                                <span><i class="bi bi-rulers"></i> 20×15m</span>
+                                <span><i class="bi bi-check-circle"></i> Near Houses</span>
+                            </div>
+                            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                                ✓ Accessible roads<br>
+                                ✓ Residential area<br>
+                                ✓ Ready for development
+                            </p>
+                            <a href="https://wa.me/260773103431?text=I'm interested in Mungule 10 Miles plots" class="btn btn-primary-custom w-100">
+                                <i class="bi bi-whatsapp"></i> Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-badge">BEST VALUE</div>
+                        <div class="property-image">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-location">
+                                <i class="bi bi-pin-map"></i> Muchenje
+                            </div>
+                            <div class="property-title">Affordable Starter Plots</div>
+                            <div class="urgency-tag">
+                                <i class="bi bi-fire"></i> High demand area
+                            </div>
+                            <div class="property-price">From K3,950</div>
+                            <div class="property-features">
+                                <span><i class="bi bi-rulers"></i> 20×15m</span>
+                                <span><i class="bi bi-cash-coin"></i> Best Price</span>
+                            </div>
+                            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                                ✓ Perfect for first-time buyers<br>
+                                ✓ Growing community<br>
+                                ✓ Easy access
+                            </p>
+                            <a href="https://wa.me/260773103431?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
+                                <i class="bi bi-whatsapp"></i> Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-badge">PREMIUM</div>
+                        <div class="property-image">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-location">
+                                <i class="bi bi-pin-map"></i> 9 Miles
+                            </div>
+                            <div class="property-title">High Demand Location</div>
+                            <div class="urgency-tag">
+                                <i class="bi bi-graph-up-arrow"></i> Fast appreciating
+                            </div>
+                            <div class="property-price">K35,000</div>
+                            <div class="property-features">
+                                <span><i class="bi bi-rulers"></i> 20×20m</span>
+                                <span><i class="bi bi-star"></i> Prime Area</span>
+                            </div>
+                            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                                ✓ Established neighborhood<br>
+                                ✓ Great investment<br>
+                                ✓ Near amenities
+                            </p>
+                            <a href="https://wa.me/260773103431?text=I'm interested in 9 Miles plots" class="btn btn-primary-custom w-100">
+                                <i class="bi bi-whatsapp"></i> Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-location">
+                                <i class="bi bi-pin-map"></i> Mungule - Behind Palace
+                            </div>
+                            <div class="property-title">3 Doors Prime Location</div>
+                            <div class="property-price">From K15,000</div>
+                            <div class="property-features">
+                                <span><i class="bi bi-rulers"></i> 20×20m</span>
+                                <span><i class="bi bi-house"></i> Residential</span>
+                            </div>
+                            <a href="https://wa.me/260773103431?text=I'm interested in Mungule Behind Palace plots" class="btn btn-primary-custom w-100">
+                                <i class="bi bi-whatsapp"></i> Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-location">
+                                <i class="bi bi-pin-map"></i> Mungule - St Crala
+                            </div>
+                            <div class="property-title">Rental Investment Plots</div>
+                            <div class="property-price">From K20,000</div>
+                            <div class="property-features">
+                                <span><i class="bi bi-rulers"></i> 20×20m</span>
+                                <span><i class="bi bi-building"></i> Multi-use</span>
+                            </div>
+                            <a href="https://wa.me/260773103431?text=I'm interested in Mungule St Crala plots" class="btn btn-primary-custom w-100">
+                                <i class="bi bi-whatsapp"></i> Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="property-body">
+                            <div class="property-location">
+                                <i class="bi bi-pin-map"></i> Muchenje - Near Market
+                            </div>
+                            <div class="property-title">Business & Residential</div>
+                            <div class="property-price">From K4,950</div>
+                            <div class="property-features">
+                                <span><i class="bi bi-rulers"></i> 20×15m</span>
+                                <span><i class="bi bi-shop"></i> Near Market</span>
+                            </div>
+                            <a href="https://wa.me/260773103431?text=I'm interested in Muchenje Market plots" class="btn btn-primary-custom w-100">
+                                <i class="bi bi-whatsapp"></i> Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="https://wa.me/260773103431" class="btn btn-secondary-custom btn-lg">
+                    <i class="bi bi-whatsapp"></i> View All Available Plots
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Our Services</h2>
+        <p>Comprehensive real estate solutions tailored to your needs</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+            <div class="icon">
+                <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <a href="service-details.html" class="stretched-link">
+                <h3>Residential Plots</h3>
+            </a>
+            <p>Verified residential plots in prime locations around Lusaka. Perfect for building your dream home with flexible payment plans and proper documentation.</p>
+            </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+            <div class="icon">
+                <i class="bi bi-tree-fill"></i>
+            </div>
+            <a href="service-details.html" class="stretched-link">
+                <h3>Farm Plots</h3>
+            </a>
+            <p>Agricultural land for farming and investment purposes. Spacious plots in developing areas with road access and growth potential.</p>
+            </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+            <div class="icon">
+                <i class="bi bi-house-door-fill"></i>
+            </div>
+            <a href="service-details.html" class="stretched-link">
+                <h3>Houses for Sale</h3>
+            </a>
+            <p>Ready-to-move-in houses and properties. Browse our selection of quality homes in secure neighborhoods across Lusaka.</p>
+            </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+            <div class="icon">
+                <i class="bi bi-hammer"></i>
+            </div>
+            <a href="service-details.html" class="stretched-link">
+                <h3>Construction Services</h3>
+            </a>
+            <p>Professional construction services from foundation to finishing. We help you build quality structures on your land at competitive rates.</p>
+            </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+            <div class="icon">
+                <i class="bi bi-building"></i>
+            </div>
+            <a href="service-details.html" class="stretched-link">
+                <h3>Real Estate Consultation</h3>
+            </a>
+            <p>Expert advice on property investment, land valuation, and market trends. We guide you to make informed real estate decisions.</p>
+            </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+            <div class="icon">
+                <i class="bi bi-file-earmark-text-fill"></i>
+            </div>
+            <a href="service-details.html" class="stretched-link">
+                <h3>Legal Documentation</h3>
+            </a>
+            <p>Complete assistance with land title verification, transfer documents, and legal paperwork. Ensuring your property ownership is secure and legitimate.</p>
+            </div>
+        </div><!-- End Service Item -->
+
+        </div>
+
+    </div>
+
+    </section><!-- /Services Section -->
+
+    <section class="video-section">
+    <div class="container">
+        <h2>See Our Properties</h2>
+        <div class="row">
+        <div class="col-md-6">
+            <div class="video-wrapper">
+            <iframe width="100%" height="315" 
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                title="Land Tour"></iframe>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3>Virtual Site Visits</h3>
+            <p>Can't visit in person? Watch our video tours!</p>
+            <ul>
+            <li>✓ Drone footage of locations</li>
+            <li>✓ Neighborhood tours</li>
+            <li>✓ Customer testimonials</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+     <!-- Agents Section -->
+    <section id="agents" class="agents section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Agents</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/team-1.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Teddy Luwo</h4>
+                <span>Company Director</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/team-2.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Rent Manager</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>Sale manager<br></span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Agents Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>What Our Clients Say</h2>
+        <p>Real stories from satisfied landowners who trusted Green Housing Limited</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  I was skeptical about buying land at first, but Green Housing made everything so easy. They verified all the documents and the payment plan fit my budget perfectly. I now own a plot in Mungule!.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Lecturer, Lusaka</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Professional service from start to finish. The team helped me choose the right location for my investment. The land documentation was legitimate and the transfer process was smooth. Highly recommend!
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Business Owner</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Best decision I made this year! Bought two plots for my children's future. Green Housing handled everything professionally and kept me updated throughout. The flexible payment terms were a lifesaver.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                  <h3>Patrick Chanda</h3>
+                  <h4>Civil Servant</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  I found them on Facebook and decided to visit their office. Very transparent with all the land details and pricing. No hidden charges! I'm now building my dream home on the plot I purchased from them.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                  <h3>Maz Phiri</h3>
+                  <h4>Nurse</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                    Excellent customer service! They took me for a site visit and explained everything clearly. The area has great potential and I'm happy I invested early. Thank you Green Housing for making land ownership accessible.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>NORTH GATE GARDENS</p>
+            <p>CHIPATA OVERSPILL SHOPPING COMPLEX</p>
+            <!--<p>NEAR NORTH GATE POLICE POST</p>-->
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>0773103431<span><br>
+              <strong>Email:</strong> <span>greenhousing24@gmail.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>8AM - 18PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">GREEN HOUSING LTD</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">ElishaTechnologies</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
