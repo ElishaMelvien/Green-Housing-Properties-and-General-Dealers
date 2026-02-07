@@ -11,6 +11,8 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -24,8 +26,230 @@
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-green: #1b5e20;
+      --secondary-green: #2e7d32;
+      --accent-gold: #ffa726;
+      --dark: #1a1a1a;
+      }
+    .hero-highlight {
+        color: var(--accent-gold);
+    }
+
+    .trust-badges {
+      display: flex;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255,255,255,0.1);
+        padding: 10px 20px;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
+    }
+
+    .trust-badge i {
+        font-size: 24px;
+        color: var(--accent-gold);
+    }
+
+  .urgency-tag {
+      background: #ffebee;
+      color: #c62828;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .features span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 6px;
+
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    /* staggered entrance */
+    .features span:nth-child(1) { animation-delay: 0.1s; }
+    .features span:nth-child(2) { animation-delay: 0.25s; }
+    .features span:nth-child(3) { animation-delay: 0.4s; }
+
+    .features i {
+      color: #28a745;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* hover effect */
+    .features span:hover i {
+      transform: scale(1.2) rotate(-5deg);
+      color: #1e7e34;
+    }
+
+    .features span:hover {
+      color: #222;
+    }
+
+    /* animation keyframes */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CTA*/
+    .btn-primary-custom {
+        background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+        color: white;
+        border: none;
+        padding: 6px 16px;
+        border-radius: 30px;
+        width: auto;
+        font-weight: bold;
+        font-size: 14px;
+        transition: transform 0.3s;
+      }
+
+      .btn-primary-custom:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+      }
+
+      .trust-card {
+        background: linear-gradient(135deg, #062a1d, #0d7343);
+        border-radius: 14px;
+        padding: 30px 15px;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .trust-card i {
+        font-size: 38px;
+        color: white;
+        margin-bottom: 12px;
+      } 
+
+      .trust-logo {
+        max-height: 55px;
+        margin-bottom: 12px;
+      }
+
+      .trust-card h6 {
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: var(--accent-gold);
+      }
+
+      .trust-card p {
+        font-size: 13px;
+        color: white;
+        margin: 0;
+      }
+
+      .trust-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(221, 217, 217, 0.08);
+      }
+
+      .trust-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      }
+
+  .booking-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+  }
+
+  .booking-steps li {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 20px 20px 70px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    font-size: 15px;
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .booking-steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: var(--primary-green);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .booking-steps li strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: #222;
+  }
+
+  .booking-steps li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Mobile tweaks */
+  @media (max-width: 576px) {
+    .booking-steps li {
+      padding: 18px 16px 18px 60px;
+      font-size: 14px;
+    }
+
+    .booking-steps li::before {
+      left: 14px;
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+    }
+  }
+
+  .booking-steps li:nth-child(2) {
+    border-left: 4px solid var(--primary-green);
+  }
+
+  .booking-steps li {
+  will-change: transform, opacity;
+}
+
+
+
+  </style>
 </head>
 
 <body class="index-page">
@@ -83,11 +307,27 @@
           <img src="assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
           <div class="carousel-container">
             <div>
+              <h1 style="color: #f8f9fa;">Buy <span class="hero-highlight">Legitimate & Verified Plots</span> in Lusaka — Without Fear</h1>
+              <p>We help Zambians own land safely with verified documents, clear allocation, and guided ownership transfer.</p>
               
-              <p>Lusaka & Surrounding Areas</p>
               <h2><span>Affordable</span> PLOTS for Sale</h2>
               <a href="#land-promos" class="btn-get-started">View Available Plots</a>
+              <a href="#land-guide" class="btn-get-started">Free Land Buying Checklist</a>
             </div>
+            <div class="trust-badges justify-content-center">
+                        <div class="trust-badge">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span>Verified Titles</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Fast Processing</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-shield-lock"></i>
+                            <span>Secure Transfer</span>
+                        </div>
+                    </div>
           </div>
         </div><!-- End Carousel Item -->
 
@@ -126,21 +366,71 @@
       </div>
 
     </section><!-- /Hero Section -->
-    
-    <section id="cta-home" class="cta section" style="background: linear-gradient(135deg, #1b5e20, #2e7d32);">
-      <div class="container" data-aos="zoom-in">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-8 text-center text-lg-start">
-            <h3 class="text-white">Ready to Own Legit Land in Zambia?</h3>
-            <p class="text-white mb-0">Talk to our agents today and secure affordable, verified plots with flexible payment plans.</p>
-          </div>
-          <div class="col-lg-4 mt-3 mt-lg-0">
-            <div class="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-end gap-2">
-              <a href="https://wa.me/260773103431" class="btn btn-warning fw-bold"><i class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
-              <a href="properties.html" class="btn btn-outline-light">View Available Plots</a>
+
+    <!-- Trust & Certification Section -->
+    <section id="certifications" class="section py-5 bg-white">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center mb-4">
+          <h2>Fully Registered & Certified in Zambia</h2>
+          <p>
+            We operate legally and transparently under all required Zambian authorities.
+          </p>
+        </div>
+
+        <div class="row justify-content-center text-center gy-4">
+
+          <!-- ZRA -->
+          <div class="col-6 col-md-3">
+            <div class="trust-card">
+              <img src="assets/img/ZRA-logo-01.png"
+                  alt="ZRA Registered Company"
+                  class="trust-logo">
+              <h6>ZRA Registered</h6>
+              <p>Tax compliant & certified</p>
             </div>
           </div>
+
+          <!-- PACRA -->
+          <div class="col-6 col-md-3">
+            <div class="trust-card">
+              <i class="bi bi-building-check"></i>
+              <h6>PACRA Certified</h6>
+              <p>Legally registered company</p>
+            </div>
+          </div>
+
+          <!-- City Council -->
+          <div class="col-6 col-md-3">
+            <div class="trust-card">
+              <i class="bi bi-bank2"></i>
+              <h6>City Council</h6>
+              <p>Approved land allocations</p>
+            </div>
+          </div>
+
+          <!-- ZIEA / Real Estate -->
+          <div class="col-6 col-md-3">
+            <div class="trust-card">
+              <img src="assets/img/ziea-logo.webp"
+                  alt="ZRA Registered Company"
+                  class="trust-logo">
+                <h6>Real Estate Professionals</h6>
+              <p>Certified land specialists</p>
+            </div>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Legal Disclaimer -->
+        <div class="text-center mt-4">
+          <small class="text-muted">
+            Registered with the Zambia Revenue Authority (ZRA).  
+            Logos used for identification purposes only.
+          </small>
+        </div>
+
       </div>
     </section>
 
@@ -149,12 +439,12 @@
         <div class="row justify-content-between gy-4">
           <div class="col-lg-6">
             <h3>Why Choose Green Housing Properties</h3>
-            <p>Transparency, verified documentation, and payment plans that work for you.</p>
+            <p>We are a Proudly registered company with ZRA, ZIEA - Zambia institute of Estate Agents, City Council, PACRA and all necessary bodies. We have been in Operations for more than 6 years offering legitimate land properties to Zambians at an Affordable rate.</p>
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-patch-check flex-shrink-0"></i>
               <div>
                 <h4>Verified & Legitimate Land</h4>
-                <p>Proper documents and secure ownership transfer for peace of mind.</p>
+                <p>Verified land with proper title deed and secure ownership transfer</p>
               </div>
             </div>
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
@@ -168,7 +458,7 @@
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h4>Prime Locations</h4>
-                <p>Plots in fast-growing, accessible areas — buy now for long-term value.</p>
+                <p>Our plots are located in fast-growing and accessible areas. Remember, your land is your generational inheritance. Let's consider buying land while we can</p>
               </div>
             </div>
           </div>
@@ -179,12 +469,64 @@
       </div>
     </section>
 
-    <!-- December Land Promotion Section -->
+    
+    <!-- Land Buying Guide Section -->
+    <section id="land-guide" class="section bg-light py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center mb-5">
+          <h2>Free Land Buying Checklist</h2>
+          <p>
+            Avoid scams and make sure your land investment is safe. 
+            Follow our simple, step-by-step guide to buying verified plots in Zambia.
+          </p>
+        </div>
+
+        <div class="row g-4 align-items-center">
+
+          <div class="col-lg-6">
+            <img src="assets/img/land-guide.jpg" class="img-fluid rounded shadow" alt="Land Buying Guide">
+          </div>
+
+          <div class="col-lg-6">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Verify the land ownership with ZRA / City Council
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Check survey maps and pegging for accuracy
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Confirm all legal documents (title deeds) are genuine
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Visit the site physically to inspect accessibility & surroundings
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Understand payment & transfer process fully before paying
+              </li>
+            </ul>
+
+            <a href="contact.html" class="btn btn-success btn-lg">
+              <i class="bi bi-download"></i> Download Free Checklist
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Land Promotion Section -->
     <section id="land-promos" class="section bg-light">
 
       <div class="container" data-aos="fade-up">
         <div class="section-title text-center">
-          <h2>December Land Promotion</h2>
+          <h2 style="color: #d81212;">ALL Plots on Promotion</h2>
           <p>Affordable plots around Lusaka – genuine land, ready for development</p>
         </div>
 
@@ -193,23 +535,44 @@
           <!-- Mungule 10 Miles -->
           <div class="col-lg-4 col-md-6">
             <div class="promo-card">
-              <h4>Mungule – 10 Miles</h4>
+              <h4>MUNGULE – 10 Miles</h4>
               <p class="location">📍 3 Doors Site 1</p>
-
+                <div class="urgency-tag">
+                    <i class="bi bi-clock"></i> Only 5 plots left
+                </div>
               <ul class="price-list">
                 <li>20 × 15 — <strong>K7,500</strong></li>
                 <li>20 × 30 — <strong>K15,000</strong></li>
                 <li>40 × 30 — <strong>K30,000</strong></li>
               </ul>
 
-              <p class="note">✔ Near existing houses<br>✔ Accessible roads</p>
+                <p class="features">
+                <span data-aos="fade-up" data-aos-delay="0">
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                  Accessible roads
+                </span>
+
+                <span data-aos="fade-up" data-aos-delay="150">
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                  Growing community
+                </span>
+
+                <span data-aos="fade-up" data-aos-delay="300">
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                  Easy access
+                </span>
+              </p>
+              <a href="https://wa.me/260771165284?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
+                  <i class="bi bi-whatsapp"></i> Book Site Visit
+              </a>
+
             </div>
           </div>
 
           <!-- Mungule Behind the Palace -->
           <div class="col-lg-4 col-md-6">
             <div class="promo-card">
-              <h4>Mungule – 3 Doors</h4>
+              <h4>MUNGULE – 3 Doors</h4>
               <p class="location">📍 Behind the Palace</p>
 
               <ul class="price-list">
@@ -217,29 +580,63 @@
                 <li>20 × 40 — <strong>K30,000</strong></li>
                 <li>40 × 40 — <strong>K60,000</strong></li>
               </ul>
+              <br>
 
-              <p class="note">✔ Prime residential area</p>
+              <p class="features">
+              <span>
+                <i class="bi bi-check-circle-fill"></i> Prime residential area
+              </span>
+              <span>
+                <i class="bi bi-check-circle-fill"></i> Growing community
+              </span>
+              <span>
+                <i class="bi bi-check-circle-fill"></i> Easy access
+              </span>
+            </p>
+             <a href="https://wa.me/260773103431?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
+                  <i class="bi bi-whatsapp"></i> Book Site Visit
+              </a>
             </div>
           </div>
 
           <!-- 9 Miles -->
           <div class="col-lg-4 col-md-6">
             <div class="promo-card">
-              <h4>9 Miles</h4>
+              <h4>9 MILES HIGH COST</h4>
               <p class="location">📍 Lusaka Outskirts</p>
 
               <ul class="price-list">
                 <li>20 × 20 — <strong>K35,000</strong></li>
+                <li>20 × 40 — <strong>K70,000</strong></li>
+                <li>40 × 40 — <strong>K140,000</strong></li>
               </ul>
 
-              <p class="note">✔ High demand area</p>
+              <p class="features">
+              <span>
+                <i class="bi bi-check-circle-fill"></i>Good road networks
+              </span>
+              <span>
+                <i class="bi bi-check-circle-fill"></i>Near ZESCO poles
+              </span>
+              <span>
+                <i class="bi bi-check-circle-fill"></i> Easy access
+              </span>
+            </p>
+            <small class="text-muted">
+            *A non-refundable K800 security deposit is required to reserve a plot.
+            The amount is fully deducted from the plot price upon purchase.*
+          </small> <br>
+
+            <a href="https://wa.me/260773103431?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
+                  <i class="bi bi-whatsapp"></i> Book Site Visit
+              </a>
             </div>
           </div>
 
           <!-- Mungule St Crala -->
           <div class="col-lg-4 col-md-6">
             <div class="promo-card">
-              <h4>Mungule – St Crala</h4>
+              <h4>MUNGULE – St CLARA</h4>
 
               <ul class="price-list">
                 <li>20 × 20 — <strong>K20,000</strong></li>
@@ -248,27 +645,34 @@
               </ul>
 
               <p class="note">✔ Ideal for homes & rentals</p>
+              <a href="https://wa.me/260773103431?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
+                  <i class="bi bi-whatsapp"></i> Book Site Visit
+              </a>
             </div>
           </div>
 
           <!-- Muchenje -->
           <div class="col-lg-4 col-md-6">
             <div class="promo-card">
-              <h4>Muchenje</h4>
+              <h4>CHAMINUKA KASISI AREA</h4>
 
               <ul class="price-list">
-                <li>20 × 15 — <strong>K3,950</strong></li>
-                <li>20 × 30 — <strong>K7,900</strong></li>
+                <li>20 × 20 — <strong>K4,950</strong></li>
+                <li>20 × 40 — <strong>K9,900</strong></li>
+                <li>40 × 40 — <strong>K19,800</strong></li>
               </ul>
 
               <p class="note">✔ Affordable starter plots</p>
+              <a href="https://wa.me/260773103431?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
+                  <i class="bi bi-whatsapp"></i> Book Site Visit
+              </a>
             </div>
           </div>
 
           <!-- Muchenje Market -->
           <div class="col-lg-4 col-md-6">
             <div class="promo-card">
-              <h4>Muchenje – Near Market</h4>
+              <h4>MUCHENJE – Near Market</h4>
 
               <ul class="price-list">
                 <li>20 × 15 — <strong>K4,950</strong></li>
@@ -277,133 +681,106 @@
               </ul>
 
               <p class="note">✔ Business & residential potential</p>
+              <a href="https://wa.me/260773103431?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
+                  <i class="bi bi-whatsapp"></i> Book Site Visit
+              </a>
             </div>
           </div>
 
         </div>
 
-        <!-- Call to Action -->
-        <div class="text-center mt-5">
-          <h4>Visit Us: North Gate Gardens, Chipata Overspill Mall</h4>
-          <p>
-            <strong>Call / WhatsApp:</strong><br>
-            <a href="tel:0773103431">0773 103 431</a> |
-            <a href="tel:0979235610">0979 235 610</a>
-          </p>
+    </section>
+    <!-- /December Land Promotion Section -->
 
-          <!--<a href="https://wa.me/260773103431" class="btn btn-success btn-lg">-->
-          <a href="https://wa.me/260773103431" class="btn btn-success btn-lg shadow">
+    <section id="booking-process" class="section py-5 bg-light">
+  <div class="container" data-aos="fade-up">
 
-            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
-          </a>
-        </div>
+    <div class="section-title text-center mb-4">
+      <h2>Plot Booking Process</h2>
+      <p>
+        We keep our process simple, transparent, and fair.
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+    <ol class="booking-steps">
+      <li data-aos="fade-up" data-aos-delay="0">
+        <strong>Select Your Plot</strong>
+        Choose an available plot from our listings or with assistance from our team.
+      </li>
+
+      <li data-aos="fade-up" data-aos-delay="100">
+        <strong>Pay a K800 Security Deposit</strong>
+        A one-time, non-refundable security deposit is required to reserve the plot.
+      </li>
+
+      <li data-aos="fade-up" data-aos-delay="200">
+        <strong>Plot Reservation</strong>
+        The plot is secured in your name and removed from the market.
+      </li>
+
+      <li data-aos="fade-up" data-aos-delay="300">
+        <strong>Proceed to Purchase</strong>
+        If you complete the purchase, the K800 deposit is
+        <strong>deducted from the total plot price</strong>.
+      </li>
+
+      <li data-aos="fade-up" data-aos-delay="400">
+        <strong>If You Do Not Proceed</strong>
+        The security deposit is retained as an administrative and reservation fee.
+      </li>
+    </ol>
 
       </div>
+    </div>
 
-    </section>
-<!-- /December Land Promotion Section -->
+  </div>
+</section>
 
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Our Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
+    <section id="verification-process" class="section">
       <div class="container">
+        <div class="section-title text-center">
+          <h2>How We Verify Our Land</h2>
+          <p>No shortcuts. No guesswork. Just a clear process.</p>
+        </div>
 
         <div class="row gy-4">
+          <div class="col-md-3 text-center">
+            <i class="bi bi-file-earmark-text fs-1 text-success"></i>
+            <h5>Ownership Check</h5>
+            <p>We verify ownership and land history before listing.</p>
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Nesciunt Mete</h3>
-              </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-            </div>
-          </div><!-- End Service Item -->
+          <div class="col-md-3 text-center">
+            <i class="bi bi-building fs-1 text-success"></i>
+            <h5>Council Approval</h5>
+            <p>All plots are confirmed with local authorities.</p>
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Eosle Commodi</h3>
-              </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-            </div>
-          </div><!-- End Service Item -->
+          <div class="col-md-3 text-center">
+            <i class="bi bi-geo fs-1 text-success"></i>
+            <h5>Survey & Beacons</h5>
+            <p>Plots are surveyed and clearly pegged.</p>
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Ledo Markt</h3>
-              </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Asperiores Commodit</h3>
-              </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Velit Doloremque</h3>
-              </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Dolori Architecto</h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
+          <div class="col-md-3 text-center">
+            <i class="bi bi-shield-check fs-1 text-success"></i>
+            <h5>Secure Transfer</h5>
+            <p>We guide you through allocation and documentation.</p>
+          </div>
         </div>
-
       </div>
-
-    </section><!-- /Services Section -->
+    </section>
 
     <!-- Agents Section -->
     <section id="agents" class="agents section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Our Agents</h2>
+        <h2>Our Team</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
@@ -432,7 +809,7 @@
               <div class="pic"><img src="assets/img/team/team-2.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Sarah Jhonson</h4>
-                <span>Rent Manager</span>
+                <span>Land Manager</span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -448,7 +825,7 @@
               <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>William Anderson</h4>
-                <span>Sale manager<br></span>
+                <span>Sales manager<br></span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -465,13 +842,13 @@
 
     </section><!-- /Agents Section -->
 
-    <!-- Testimonials Section -->
+     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>What Our Clients Say</h2>
+        <p> Thousands of Zambians trust us because we prioritize transparency and verification.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -510,12 +887,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  I was skeptical about buying land at first, but Green Housing made everything so easy. They verified all the documents and the payment plan fit my budget perfectly. I now own a plot in Mungule!.
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                   <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <h4>Lecturer, Lusaka</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -526,12 +903,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  Professional service from start to finish. The team helped me choose the right location for my investment. The land documentation was legitimate and the transfer process was smooth. Highly recommend!
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                   <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
+                  <h4>Business Owner</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -542,12 +919,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  Best decision I made this year! Bought two plots for my children's future. Green Housing handled everything professionally and kept me updated throughout. The flexible payment terms were a lifesaver.
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
+                  <h3>Patrick Chanda</h3>
+                  <h4>Civil Servant</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -558,12 +935,12 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  I found them on Facebook and decided to visit their office. Very transparent with all the land details and pricing. No hidden charges! I'm now building my dream home on the plot I purchased from them.
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
+                  <h3>Maz Phiri</h3>
+                  <h4>Nurse</h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -574,7 +951,7 @@
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                    Excellent customer service! They took me for a site visit and explained everything clearly. The area has great potential and I'm happy I invested early. Thank you Green Housing for making land ownership accessible.
                 </p>
                 <div class="profile mt-auto">
                   <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
@@ -604,7 +981,6 @@
             <h4>Address</h4>
             <p>NORTH GATE GARDENS</p>
             <p>CHIPATA OVERSPILL SHOPPING COMPLEX</p>
-            <!--<p>NEAR NORTH GATE POLICE POST</p>-->
             <p></p>
           </div>
 
@@ -669,7 +1045,14 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 80
+  });
+</script>
 </body>
-
 </html>
