@@ -306,9 +306,164 @@
 }
 
 
+  /* ------------------- Payment Options ---------------- */
+  .payment-card {
+     background: rgb(243, 243, 243);
+    border-radius: 14px;
+    /* color: white; */
+    padding: 30px 20px;
+    height: 90%;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  }
+
+  .payment-card i {
+    font-size: 42px;
+    color: rgb(209, 209, 5);
+    margin-bottom: 12px;
+  }
+
+  .payment-card h5 {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1b5e20;
+  }
+
+ 
+  .payment-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  }
+
+  /* Payment Note */
+  .payment-note {
+    
+    background: #f1f8f5;
+    border-left: 4px solid var(--accent-gold);
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .payment-note i {
+    font-size: 24px;
+    color: var(--primary-green);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Mobile tweaks */
+  @media (max-width: 576px) {
+    .payment-card {
+      padding: 24px 16px;
+    }
+
+    .payment-card i {
+      font-size: 36px;
+    }
+  }
 
 
-  </style>
+  .bank-info {
+    margin-top: 10px;
+    padding-top: 10px;
+    /* border-top: 1px dashed #ddd; */
+    color: linear-gradient(135deg, #062a1d, #0d7343);;
+    line-height: 1.6;
+  }
+
+/* -------------------------------------------------------------- */
+  .trust-blob {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 25px auto 40px;
+  }
+
+  .trust-blob-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #062a1d, #0d7343);
+    border-radius: 999px; /* blob / pill shape */
+    color: #f1f8f5;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .trust-blob-item i {
+    color: #ffd966;
+    font-size: 16px;
+  }
+
+  /* Hover (desktop only feel) */
+  .trust-blob-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+  }
+
+  /* Mobile tightening */
+  @media (max-width: 768px) {
+    .trust-blob {
+      margin: 18px auto 25px;
+    }
+
+    .trust-blob-item {
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+  }
+
+
+  .gallery-item {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery-item img {
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay h5 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Force uniform gallery size */
+.gallery-item {
+  height: 260px;              /* adjust if needed */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Make images fill container */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* magic line */
+}
+
+
+
+</style>
 </head>
 
 <body class="index-page">
@@ -366,7 +521,7 @@
           <img src="assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
           <div class="carousel-container">
             <div>
-              <h1 style="color: #f8f9fa;">Buy <span class="hero-highlight">Legitimate & Verified Plots</span> in Lusaka — Without Fear</h1>
+              <h1 style="color: #f8f9fa;">Buy <span class="hero-highlight">Legitimate & Verified Plots</span> — Without Fear</h1>
               <p>We help Zambians own land safely with verified documents, clear allocation, and guided ownership transfer.</p>
               
               <h2><span>Affordable</span> PLOTS for Sale</h2>
@@ -579,7 +734,6 @@
       </div>
     </section>
 
-
     <!-- Land Promotion Section -->
     <section id="land-promos" class="section bg-light">
 
@@ -587,6 +741,10 @@
         <div class="section-title text-center">
           <h2 style="color: #d81212;">ALL Plots on Promotion</h2>
           <p>Affordable plots around Lusaka – genuine land, ready for development</p>
+          <small class="text-muted">
+            *A non-refundable <strong style="color: #28a745;">K800</strong> security deposit is required to reserve a plot.
+            The amount is fully deducted from the plot price upon purchase.*
+          </small>
         </div>
 
         <div class="row gy-4">
@@ -681,10 +839,7 @@
                 <i class="bi bi-check-circle-fill"></i> Easy access
               </span>
             </p>
-            <small class="text-muted">
-            *A non-refundable K800 security deposit is required to reserve a plot.
-            The amount is fully deducted from the plot price upon purchase.*
-          </small> <br>
+             <br>
 
             <a href="https://wa.me/260773103431?text=I'm interested in Muchenje plots" class="btn btn-primary-custom w-100">
                   <i class="bi bi-whatsapp"></i> Book Site Visit
@@ -751,96 +906,227 @@
     </section>
     <!-- /December Land Promotion Section -->
 
-    <section id="booking-process" class="section py-5 bg-light">
+    <section id="property-gallery" class="section py-5 bg-white">
   <div class="container" data-aos="fade-up">
-
     <div class="section-title text-center mb-4">
-      <h2>Plot Booking Process</h2>
-      <p>
-        We keep our process simple, transparent, and fair.
-      </p>
+      <h2>Property Gallery</h2>
+      <p>Explore plots in Chaminuka, Silverest, Mungule, 10 Miles, 9 Miles, and more</p>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
+    <div class="row g-3">
+      <!-- Chaminuka -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="gallery-item position-relative overflow-hidden rounded shadow">
+          <img src="assets/img/silverest/silverest-2.jpeg" class="img-fluid" alt="Chaminuka Plots">
+          <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white">Silverest</h5>
+          </div>
+        </div>
+      </div>
 
-    <ol class="booking-steps">
-      <li data-aos="fade-up" data-aos-delay="0">
-        <strong>Select Your Plot</strong>
-        Choose an available plot from our listings or with assistance from our team.
-      </li>
+      <!-- Silverest -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="gallery-item position-relative overflow-hidden rounded shadow">
+          <img src="assets/img/silverest/silverest-1.jpg" class="img-fluid" alt="Silverest Plots">
+          <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white">Silverest</h5>
+          </div>
+        </div>
+      </div>
 
-      <li data-aos="fade-up" data-aos-delay="100">
-        <strong>Pay a K800 Security Deposit</strong>
-        A one-time, non-refundable security deposit is required to reserve the plot.
-      </li>
+      <!-- Mungule -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="gallery-item position-relative overflow-hidden rounded shadow">
+          <img src="assets/img/mungule 3 doors 2/mungule-3 doors 2.jpg" class="img-fluid" alt="Mungule Plots">
+          <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white">Mungule</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Mungule -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="gallery-item position-relative overflow-hidden rounded shadow">
+          <img src="assets/img/mungule 3 doors 2/mungule-3 doors.jpg" class="img-fluid" alt="Mungule Plots">
+          <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white">Mungule</h5>
+          </div>
+        </div>
+      </div>
 
-      <li data-aos="fade-up" data-aos-delay="200">
-        <strong>Plot Reservation</strong>
-        The plot is secured in your name and removed from the market.
-      </li>
+      <!-- Mungule -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="gallery-item position-relative overflow-hidden rounded shadow">
+          <img src="assets/img/mungule 3 doors 2/mungule-off road.jpg" class="img-fluid" alt="Mungule Plots">
+          <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white">Mungule</h5>
+          </div>
+        </div>
+      </div>
 
-      <li data-aos="fade-up" data-aos-delay="300">
-        <strong>Proceed to Purchase</strong>
-        If you complete the purchase, the K800 deposit is
-        <strong>deducted from the total plot price</strong>.
-      </li>
+      <!-- 10 Miles -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="gallery-item position-relative overflow-hidden rounded shadow">
+          <img src="assets/img/chaminuka/chaminuka 1750.jpg" class="img-fluid" alt="10 Miles Plots">
+          <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white">Chaminuka</h5>
+          </div>
+        </div>
+      </div>
 
-      <li data-aos="fade-up" data-aos-delay="400">
-        <strong>If You Do Not Proceed</strong>
-        The security deposit is retained as an administrative and reservation fee.
-      </li>
-    </ol>
-
+      <!-- 9 Miles -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="gallery-item position-relative overflow-hidden rounded shadow">
+          <img src="assets/img/silverest/plot house.jpg" class="img-fluid" alt="9 Miles Plots">
+          <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white">Silverest</h5>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 </section>
 
 
-    <section id="verification-process" class="section">
-      <div class="container">
-        <div class="section-title text-center">
-          <h2>How We Verify Our Land</h2>
-          <p>No shortcuts. No guesswork. Just a clear process.</p>
+    <section id="booking-process" class="section py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center mb-4">
+          <h2>Plot Booking Process</h2>
+          <p>
+            We keep our process simple, transparent, and fair.
+          </p>
         </div>
 
-        <div class="row gy-4">
-          <div class="col-md-3 text-center">
-            <i class="bi bi-file-earmark-text fs-1 text-success"></i>
-            <h5>Ownership Check</h5>
-            <p>We verify ownership and land history before listing.</p>
-          </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
 
-          <div class="col-md-3 text-center">
-            <i class="bi bi-building fs-1 text-success"></i>
-            <h5>Council Approval</h5>
-            <p>All plots are confirmed with local authorities.</p>
-          </div>
+        <ol class="booking-steps">
+          <li data-aos="fade-up" data-aos-delay="0">
+            <strong>Select Your Plot</strong>
+            Choose an available plot from our listings or with assistance from our team.
+          </li>
 
-          <div class="col-md-3 text-center">
-            <i class="bi bi-geo fs-1 text-success"></i>
-            <h5>Survey & Beacons</h5>
-            <p>Plots are surveyed and clearly pegged.</p>
-          </div>
+          <li data-aos="fade-up" data-aos-delay="100">
+            <strong>Pay a K800 Security Deposit</strong>
+            A one-time, non-refundable security deposit is required to reserve the plot.
+          </li>
 
-          <div class="col-md-3 text-center">
-            <i class="bi bi-shield-check fs-1 text-success"></i>
-            <h5>Secure Transfer</h5>
-            <p>We guide you through allocation and documentation.</p>
+          <li data-aos="fade-up" data-aos-delay="200">
+            <strong>Plot Reservation</strong>
+            The plot is secured in your name and removed from the market.
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <strong>Proceed to Purchase</strong>
+            If you complete the purchase, the K800 deposit is
+            <strong>deducted from the total plot price</strong>.
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="400">
+            <strong>If You Do Not Proceed</strong>
+            The security deposit is retained as an administrative and reservation fee.
+          </li>
+        </ol>
+
           </div>
         </div>
+
       </div>
     </section>
 
+      <!-- Payment Options Section -->
+      <section id="payment-options" class="section py-5 bg-white">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title text-center mb-4">
+            <h2>Payment Options</h2>
+            <p>
+              We offer flexible and transparent payment methods to make land ownership easy.
+            </p>
+          </div>
+
+          <div class="row g-4 justify-content-center">
+
+            <!-- Mobile Money -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+              <div class="payment-card text-center">
+                <i class="bi bi-phone-fill"></i>
+                <h5>Mobile Money</h5>
+                <p>MTN • Airtel • Zamtel</p>
+              </div>
+            </div>
+
+            <!-- Bank Transfer -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="payment-card text-center">
+                <i class="bi bi-bank"></i>
+                <h5>Bank Transfer</h5>
+
+                <!-- Bank Details -->
+                <div class="bank-info">
+                  <small>
+                    <strong>BANK:</strong> STANBIC<br>
+                    <strong>ACCOUNT NO:</strong>9130006059159<br>
+                    <strong>BRANCH:</strong> East Park<br>
+                    <strong>NAME:</strong> Green Housing Properties
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cash -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="payment-card text-center">
+                <i class="bi bi-cash-stack"></i>
+                <h5>Cash Payments</h5>
+                <p>Available at our registered offices</p>
+              </div>
+            </div>
+          </div>
+
+        <!-- Important Notes -->
+        <div class="row mt-4 justify-content-center">
+          <div class="col-lg-8 text-center">
+            <div class="payment-note">
+              <i class="bi bi-shield-check"></i>
+              <p>
+                A <strong>K800 non-refundable security deposit</strong> is required to reserve a plot.
+                If you proceed with the purchase, this amount is
+                <strong>fully deducted from the total plot price</strong>.
+              </p>
+              <small class="text-muted">
+                No hidden charges. All payments are officially receipted.
+              </small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="trust-blob">
+      <div class="trust-blob-item">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Verified Ownership</span>
+      </div>
+
+      <div class="trust-blob-item">
+        <i class="bi bi-building"></i>
+        <span>Council Approved</span>
+      </div>
+
+      <div class="trust-blob-item">
+        <i class="bi bi-shield-check"></i>
+        <span>Secure Transfer</span>
+      </div>
+    </div>
+
     <!-- Agents Section -->
     <section id="agents" class="agents section">
-
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Our Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Meet the dedicated professionals who drive our vision and deliver exceptional service.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -849,7 +1135,7 @@
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
-              <div class="pic"><img src="assets/img/team/team-1.jpeg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team-1/director.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Teddy Luwo</h4>
                 <span>Company Director</span>
@@ -865,10 +1151,10 @@
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="member">
-              <div class="pic"><img src="assets/img/team/team-2.jpeg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Land Manager</span>
+                <h4>John Zulu</h4>
+                <span>Site Manager</span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -881,10 +1167,10 @@
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="member">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team-1/team.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>William Anderson</h4>
-                <span>Sales manager<br></span>
+                <span>Site manager and the team<br></span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
