@@ -735,11 +735,11 @@ section,
   color: var(--contrast-color);
   font-family: var(--heading-font);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
   letter-spacing: 1px;
   text-transform: uppercase;
   display: inline-block;
-  padding: 10px 40px;
+  padding: 10px 20px;
   border-radius: 50px;
   transition: 0.5s;
   margin: 10px 0;
@@ -1902,3 +1902,37 @@ section,
   transform: translateY(-2px);
   transition: 0.2s ease-in-out;
 }
+
+/* ------------------ HERO SECTION MOBILE VIEW ------------*/
+@media (max-width: 768px) {
+  .hero .carousel-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    transform: none;
+  }
+
+  .hero .carousel-container h1,
+  .hero .carousel-container h2,
+  .hero .carousel-container p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100%;
+  }
+
+  /* Only target buttons INSIDE the hero carousel */
+  .hero .carousel-container .btn-get-started {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    flex-shrink: 1;
+    min-width: 0;
+    width: auto;
+  }
+}
+
