@@ -88,7 +88,6 @@
       animation: fadeUp 0.6s ease forwards;
     }
 
-    /* staggered entrance */
     .features span:nth-child(1) { animation-delay: 0.1s; }
     .features span:nth-child(2) { animation-delay: 0.25s; }
     .features span:nth-child(3) { animation-delay: 0.4s; }
@@ -98,7 +97,6 @@
       transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    /* hover effect */
     .features span:hover i {
       transform: scale(1.2) rotate(-5deg);
       color: #1e7e34;
@@ -108,7 +106,6 @@
       color: #222;
     }
 
-    /* animation keyframes */
     @keyframes fadeUp {
       to {
         opacity: 1;
@@ -116,7 +113,6 @@
       }
     }
 
-    /* CTA*/
     .btn-primary-custom {
         background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
         color: white;
@@ -224,7 +220,6 @@
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
   }
 
-  /* Mobile tweaks */
   @media (max-width: 576px) {
     .booking-steps li {
       padding: 18px 16px 18px 60px;
@@ -449,7 +444,7 @@
 
 /* Force uniform gallery size */
 .gallery-item {
-  height: 260px;              /* adjust if needed */
+  height: 260px;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -458,13 +453,8 @@
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* magic line */
+  object-fit: cover;
 }
-
-
-/* -------- Team Section Tweaks --------- */
-
-
 
 </style>
 </head>
@@ -475,9 +465,7 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="assets/img/logo.jpg" alt="">
-        <!--<h1 class="sitename">GREEN HOUSING<span>GREEN HOUSING</span></h1>-->
         <h1 class="sitename"><span>GREEN HOUSING</span></h1>
       </a>
 
@@ -486,8 +474,6 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <!--<li><a href="properties.html">Properties</a></li>-->
-          <!--<li><a href="agents.html">Agents</a></li>-->
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -670,7 +656,6 @@
               <div class="p-4" style="background-color: #28a745;">
                 <h6>ZIAE Graduation</h6>
                 <p class="text-white mb-0">"His journey from experience in the field to becoming a registered professional reflects commitment to growth and integrity."</p>
-                <!--<p class="text-white mb-0">"From operating outside the law to becoming a registered professional, Teddy Luo's journey is a testament to the power of second chances and professional growth."</p>-->
               </div>
             </div>
           </div>
@@ -689,59 +674,18 @@
         </div>
       </div>
     </section>
-
-   
-  <!-- Optional CTA -->
-  <div class="text-center mt-5">
-      <a href="#land-promos"
-        class="btn btn-primary-custom"
-        target="_blank"
-        rel="noopener noreferrer">
-        <i class="bi bi-whatsapp"></i> Schedule Site Visit - Limited Plots Available
-      </a>
-  </div>
-  </div>
-</section>
-
-
-    <!--<section id="why-choose" class="features section">
-      <div class="container">
-        <div class="row justify-content-between gy-4">
-          <div class="col-lg-6">
-            <h3>Why Choose Green Housing Properties</h3>
-            <p>We are a Proudly registered company with ZRA, ZIEA - Zambia institute of Estate Agents, City Council, PACRA and all necessary bodies. We have been in Operations for more than 6 years offering legitimate land properties to Zambians at an Affordable rate.</p>
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-patch-check flex-shrink-0"></i>
-              <div>
-                <h4>Verified & Legitimate Land</h4>
-                <p>Verified land with proper title deed and secure ownership transfer</p>
-              </div>
-            </div>
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-currency-dollar flex-shrink-0"></i>
-              <div>
-                <h4>Affordable Pricing</h4>
-                <p>Competitive prices and flexible plans for both salaried and self-employed clients.</p>
-              </div>
-            </div>
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h4>Prime Locations</h4>
-                <p>Our plots are located in fast-growing and accessible areas. Remember, your land is your generational inheritance. Let's consider buying land while we can</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/features-bg.jpg" class="img-fluid" alt="Why choose us">
-          </div>
-        </div>
-      </div>
-    </section>-->
-
-    
-    <!-- Land Buying Guide Section -->
-    <section id="land-guide" class="section bg-light py-5">
+    <div class="text-center mt-5">
+        <a href="#land-promos"
+          class="btn btn-primary-custom"
+          target="_blank"
+          rel="noopener noreferrer">
+          <i class="bi bi-whatsapp"></i> Schedule Site Visit - Limited Plots Available
+        </a>
+    </div>
+    </div>
+  </section>
+  <!-- Land Buying Guide Section -->
+  <section id="land-guide" class="section bg-light py-5">
       <div class="container" data-aos="fade-up">
         <div class="section-title text-center mb-5">
           <h2>Free Land Buying Checklist</h2>
@@ -835,9 +779,6 @@
                   Easy access
                 </span>
               </p>
-              <!--<a href="https://wa.me/260771165284?text=I'm interested in Muchenje plots. When can I go to see the plot" class="btn btn-primary-custom w-100">
-                  <i class="bi bi-whatsapp"></i> Book Site Visit
-              </a>-->
               <a href="https://wa.me/260771165284?text=Hello%20I%20am%20interested%20in%20the%20Muchenje%20plots.%20When%20can%20I%20schedule%20a%20site%20visit%3F"
                 class="btn btn-primary-custom w-100"
                 target="_blank">
@@ -1096,17 +1037,14 @@
 </section>
 
 
-    <section id="booking-process" class="section py-5 bg-light">
-      <div class="container" data-aos="fade-up">
+<section id="booking-process" class="section py-5 bg-light">
+  <div class="container" data-aos="fade-up">
+     <div class="section-title text-center mb-4">
+        <h2>Plot Booking Process</h2>
+        <p>We keep our process simple, transparent, and fair.</p>
+      </div>
 
-        <div class="section-title text-center mb-4">
-          <h2>Plot Booking Process</h2>
-          <p>
-            We keep our process simple, transparent, and fair.
-          </p>
-        </div>
-
-        <div class="row justify-content-center">
+      <div class="row justify-content-center">
           <div class="col-lg-8">
 
         <ol class="booking-steps">
@@ -1141,7 +1079,7 @@
         </div>
 
       </div>
-    </section>
+  </section>
 
       <!-- Payment Options Section -->
       <section id="payment-options" class="section py-5 bg-white">
@@ -1300,8 +1238,7 @@
             </div>
           </div><!-- End Team Member -->
 
-
-          
+   
           <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
             <div class="member">
               <div class="pic"><img src="assets/img/team-1/Choolwe.jpg" class="img-fluid" alt=""></div>
